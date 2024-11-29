@@ -1,16 +1,22 @@
-export function checkAuth() {
-  return localStorage.getItem('isAuthenticated') === 'true';
+export const TOKEN_KEY = 'AUTH_TOKEN';
+
+export function checkToken() {
+  return localStorage.getItem(TOKEN_KEY) != null;
 }
 
-export function setAuth(value) {
-  localStorage.setItem('isAuthenticated', value);
+export function setToken(value) {
+  localStorage.setItem(TOKEN_KEY, value);
 }
 
-export function clearAuth() {
-  localStorage.removeItem('isAuthenticated');
+export function clearToken() {
+  localStorage.removeItem(TOKEN_KEY);
+}
+
+export function getToken() {
+  return localStorage.getItem(TOKEN_KEY);
 }
 
 export function logout() {
-  localStorage.removeItem('token')
+  localStorage.removeItem(TOKEN_KEY)
   window.location.href = '/index.html'
-} 
+}

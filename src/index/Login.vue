@@ -4,7 +4,7 @@
       <h2>Login</h2>
       <div class="form-group">
         <label for="username">Username</label>
-        <input 
+        <input
           type="text"
           id="username"
           v-model="username"
@@ -14,7 +14,7 @@
       <div class="form-group">
         <label for="password">Password</label>
         <input
-          type="password" 
+          type="password"
           id="password"
           v-model="password"
           required
@@ -48,8 +48,7 @@ const handleLogin = async () => {
     // Add your login logic here
     const token = 'your-token' // Replace with actual login API call
     localStorage.setItem('token', token)
-    localStorage.setItem('isAuthenticated', 'true')  // Add this line
-    
+
     // Redirect to app list instead of last app
     window.location.href = '/app-list.html'
   } catch (error) {
