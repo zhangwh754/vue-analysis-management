@@ -29,11 +29,44 @@ module.exports = defineConfig({
     },
   },
   transpileDependencies: true,
+  productionSourceMap: false,
   configureWebpack: {
     resolve: {
       alias: {
         '@': path.resolve(__dirname, 'src'),
       },
     },
+    devtool: process.env.NODE_ENV === 'development' ? 'source-map' : false,
+    optimization: {
+      splitChunks: {
+        chunks: 'all',
+        minSize: 20000, // 20kb
+        maxSize: 100000, // 100kb
+        minChunks: 1,
+        maxAsyncRequests: 30,
+        maxInitialRequests: 10,
+        cacheGroups: {
+          packages: {
+            test: /[\\/]node_modules[\\/]/,
+            priority: 10, // Increased priority
+            name(module) {
+              // Simplified naming for better caching
+              const packageMatch = module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/)
+              return packageMatch ? `package.${packageMatch[1]}` : 'vendors'
+            },
+            chunks: 'all',
+            enforce: true,
+          },
+          common: {
+            name: 'chunk-common',
+            minChunks: 2,
+            priority: 5,
+            chunks: 'initial',
+            reuseExistingChunk: true,
+          },
+        },
+      },
+    },
+    performance: false,
   },
 })
