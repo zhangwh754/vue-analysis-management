@@ -1,6 +1,6 @@
 const config = {
   plugins: {
-    'postcss-preset-env': {}
+    'postcss-preset-env': {},
   },
 }
 

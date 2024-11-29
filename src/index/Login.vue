@@ -4,21 +4,11 @@
       <h2>Login</h2>
       <div class="form-group">
         <label for="username">Username</label>
-        <input
-          type="text"
-          id="username"
-          v-model="username"
-          required
-        />
+        <input type="text" id="username" v-model="username" required />
       </div>
       <div class="form-group">
         <label for="password">Password</label>
-        <input
-          type="password"
-          id="password"
-          v-model="password"
-          required
-        />
+        <input type="password" id="password" v-model="password" required />
       </div>
       <button type="submit">Login</button>
       <p v-if="error" class="error">{{ error }}</p>
@@ -97,7 +87,7 @@ input {
 button {
   width: 100%;
   padding: 0.75rem;
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: white;
   border: none;
   border-radius: 4px;

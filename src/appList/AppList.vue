@@ -18,9 +18,9 @@ export default {
   name: 'AppList',
   methods: {
     navigateToApp(app) {
-      window.location.href = `/${app}.html`;
-    }
-  }
+      window.location.href = `/${app}.html`
+    },
+  },
 }
 </script>
 
@@ -42,6 +42,6 @@ export default {
 
 .app-item:hover {
   transform: translateY(-5px);
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
-</style> 
+</style>
