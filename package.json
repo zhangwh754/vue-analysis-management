@@ -13,8 +13,10 @@
     "**/*": "prettier --write --ignore-unknown"
   },
   "dependencies": {
+    "@vue-office/docx": "^1.6.2",
     "core-js": "^3.8.3",
     "vue": "^3.2.13",
+    "vue-demi": "^0.14.6",
     "vue-router": "^4.0.3"
   },
   "devDependencies": {
