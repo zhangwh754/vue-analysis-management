@@ -1,8 +1,8 @@
 import { createApp } from 'vue'
 import App from './App.vue'
-import { checkAuth } from '@/utils/auth'
+import { checkToken } from '@/utils/auth'
 
-if (!checkAuth()) {
+if (!checkToken()) {
   window.location.href = '/index.html'
 } else {
   localStorage.setItem('lastApp', 'app1')

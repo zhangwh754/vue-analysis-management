@@ -17,6 +17,7 @@
 </template>
 
 <script setup>
+import { setToken } from '@/utils/auth'
 import { ref } from 'vue'
 
 const username = ref('')
@@ -37,7 +38,7 @@ const handleLogin = async () => {
   try {
     // Add your login logic here
     const token = 'your-token' // Replace with actual login API call
-    localStorage.setItem('token', token)
+    setToken(token)
 
     // Redirect to app list instead of last app
     window.location.href = '/app-list.html'
