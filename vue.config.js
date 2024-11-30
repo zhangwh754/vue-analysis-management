@@ -30,6 +30,15 @@ module.exports = function () {
         title: 'Management System 2',
       },
     },
+    css: {
+      extract: true, // 是否提取css
+      sourceMap: false,
+      loaderOptions: {
+        scss: {
+          additionalData: `@import "~@/assets/styles/variables.scss";`,
+        },
+      },
+    },
     transpileDependencies: true,
     productionSourceMap: false,
     configureWebpack: {
