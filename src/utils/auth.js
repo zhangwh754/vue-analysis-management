@@ -18,5 +18,5 @@ export function getToken() {
 
 export function logout() {
   localStorage.removeItem(TOKEN_KEY)
-  window.location.href = '/index.html'
+  window.location.href = '/analysis/index.html'
 }

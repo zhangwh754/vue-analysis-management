@@ -18,7 +18,7 @@ export default {
   name: 'AppList',
   methods: {
     navigateToApp(app) {
-      window.location.href = `/${app}.html`
+      window.location.href = `/analysis/${app}.html`
     },
   },
 }

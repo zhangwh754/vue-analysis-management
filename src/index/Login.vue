@@ -41,7 +41,7 @@ const handleLogin = async () => {
     setToken(token)
 
     // Redirect to app list instead of last app
-    window.location.href = '/app-list.html'
+    window.location.href = '/analysis/app-list.html'
   } catch (error) {
     console.error('Login failed:', error)
     error.value = 'Login failed. Please try again.'
