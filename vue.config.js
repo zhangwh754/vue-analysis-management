@@ -1,5 +1,6 @@
-const { defineConfig } = require('@vue/cli-service')
 const path = require('path')
+const { defineConfig } = require('@vue/cli-service')
+const CompressionPlugin = require('compression-webpack-plugin')
 
 module.exports = function () {
   return defineConfig({
@@ -79,6 +80,14 @@ module.exports = function () {
         },
       },
       performance: false,
+      plugins: [
+        new CompressionPlugin({
+          algorithm: 'gzip',
+          test: /\.(js|css|svg|png|jpg)$/,
+          deleteOriginalAssets: false, // 不删除源文件
+          threshold: 10240, // 对超过10k的数据压缩
+        }),
+      ],
     },
   })
 }
