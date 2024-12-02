@@ -101,6 +101,7 @@ module.exports = function () {
           ],
           include: [/\.[tj]sx?$/, /\.vue$/, /\.vue\?vue/, /\.md$/],
           dts: 'auto-imports.d.ts',
+          eslintrc: { enabled: true },
           resolvers: [VueHooksPlusResolver()],
         }),
         UnpluginComponents({

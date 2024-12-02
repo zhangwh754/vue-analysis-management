@@ -1,3 +1,5 @@
+const { globals } = require('./.eslintrc-auto-import.json')
+
 module.exports = {
   root: true,
   env: {
@@ -9,7 +11,11 @@ module.exports = {
   },
   rules: {
     'no-console': 'off',
+    'no-unused-vars': 'warn',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'vue/multi-word-component-names': 'off',
+  },
+  globals: {
+    ...globals,
   },
 }
