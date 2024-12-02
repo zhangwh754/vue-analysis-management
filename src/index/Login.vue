@@ -1,5 +1,6 @@
 <template>
   <div class="login-container">
+    <AppLoading v-if="loading"></AppLoading>
     <form @submit.prevent="handleLogin" class="login-form">
       <h2>Login</h2>
       <div class="form-group">
@@ -19,6 +20,9 @@
 <script setup>
 import { setToken } from '@/utils/auth'
 import { ref } from 'vue'
+import { getSurveyListData } from './request'
+import AppLoading from '@/components/AppLoading/index.vue'
+import loading from '@/components/AppLoading/request-loading.js'
 
 const username = ref('')
 const password = ref('')
@@ -37,6 +41,10 @@ const handleLogin = async () => {
     error.value = 'Login failed. Please try again.'
   }
 }
+
+onMounted(() => {
+  getSurveyListData()
+})
 </script>
 
 <style scoped>
