@@ -21,6 +21,10 @@
         </div>
       </div>
     </div>
+
+    <n-avatar round>user</n-avatar>
+
+    <a-button type="primary">查看</a-button>
   </div>
 </template>
 

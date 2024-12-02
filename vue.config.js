@@ -1,6 +1,10 @@
 const path = require('path')
 const { defineConfig } = require('@vue/cli-service')
 const CompressionPlugin = require('compression-webpack-plugin')
+const UnpluginComponents = require('unplugin-vue-components/webpack').default
+const { NaiveUiResolver, AntDesignVueResolver } = require('unplugin-vue-components/resolvers')
+const AutoImport = require('unplugin-auto-import/webpack').default
+const { VueHooksPlusResolver } = require('@vue-hooks-plus/resolvers')
 
 module.exports = function () {
   return defineConfig({
@@ -86,6 +90,27 @@ module.exports = function () {
           test: /\.(js|css|svg|png|jpg)$/,
           deleteOriginalAssets: false, // 不删除源文件
           threshold: 10240, // 对超过10k的数据压缩
+        }),
+        AutoImport({
+          imports: [
+            'vue',
+            'vue-router',
+            {
+              'naive-ui': ['useDialog', 'useMessage', 'useNotification', 'useLoadingBar'],
+            },
+          ],
+          include: [/\.[tj]sx?$/, /\.vue$/, /\.vue\?vue/, /\.md$/],
+          dts: 'auto-imports.d.ts',
+          resolvers: [VueHooksPlusResolver()],
+        }),
+        UnpluginComponents({
+          resolvers: [
+            NaiveUiResolver(),
+            AntDesignVueResolver({
+              importStyle: false, // css in js
+            }),
+          ],
+          dts: true,
         }),
       ],
     },

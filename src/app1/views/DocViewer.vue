@@ -5,25 +5,19 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import VueOfficeDocx from '@vue-office/docx'
 import '@vue-office/docx/lib/index.css'
 
-export default {
-  components: {
-    VueOfficeDocx,
-  },
-  data() {
-    return {
-      docx: 'http://static.shanhuxueyuan.com/test6.docx',
-    }
-  },
-  methods: {
-    rendered() {
-      console.log('渲染完成')
-    },
-  },
+const docx = ref('http://static.shanhuxueyuan.com/test6.docx')
+
+const obj1 = reactive({ a: 1 })
+
+const rendered = () => {
+  console.log('渲染完成')
 }
+
+useRequest()
 </script>
 
 <style lang="scss" scoped>
